@@ -1,8 +1,10 @@
 
 import streamlit
-import pandas
+#import pandas
 import requests
 import snowflake.connector
+from urllib.error import URLERROR
+
 streamlit.title('My Healthy dinner')
 streamlit.header('Beakfast Favorites')
 streamlit.text(' 🥣 Omega 3 & Blueberry Oatmeal')
@@ -40,6 +42,7 @@ my_data_row = my_cur.fetchall()
 streamlit.text("Fruit list:")
 streamlit.dataframe(my_data_row)
 
+streamlit.stop()
 add_my_fruit = streamlit.text_input('What fruit would you like to add?','jackfruit')
 streamlit.write('Thanks for adding  ', add_my_fruit)
 #my_cur.execute("insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST values ('streamlit')")
